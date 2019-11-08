@@ -13,7 +13,8 @@ app.get('/freq', (req, res) => {
   const strArr = str.split('');
   const dict = {};
   strArr.forEach(char => {
-   char in dict ? dict[char] += 1 : dict[char] = 1;
+   let lcChar = char.toLowerCase();
+    lcChar in dict ? dict[lcChar] += 1 : dict[lcChar] = 1;
   });
 
   const results = {};
@@ -29,7 +30,6 @@ app.get('/freq', (req, res) => {
   })
 
   res.json(results)
-
 })
 
 app.get('/sum', (req, res) => {
